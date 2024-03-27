@@ -1,0 +1,66 @@
+%----------------------------------------------------------------
+% general colors
+%----------------------------------------------------------------
+\definecolor{niceblue}{HTML}{4D79A7}
+\definecolor{nicered}{HTML}{E15656}
+\definecolor{nicegreen}{HTML}{6DC350}
+\definecolor{nicepink}{HTML}{EF8EDB}
+
+\definecolor{nicewhite}{HTML}{FFFFFF}
+\definecolor{nicegray}{HTML}{818181}
+\definecolor{niceblack}{HTML}{000000}
+
+\definecolor{lightgray}{HTML}{F2F2F2}
+\definecolor{mediumgray}{HTML}{AAAAAA}
+\colorlet{darkergray}{nicegray}
+
+% \definecolor{codegreen}{HTML}{487F07} % NEED?
+
+%----------------------------------------------------------------
+% CSU colors
+%----------------------------------------------------------------
+\definecolor{csugreen}{HTML}{1E4D2B}
+\definecolor{csugold}{HTML}{C8C372}
+\colorlet{csugreendarker}{black!15!csugreen}
+\colorlet{csugreenicon}{csugreen!75}
+
+
+
+% FIX!
+\definecolor{whitedarker}{HTML}{CCCCCC}
+\setbeamercolor{mycolor1}{fg=whitedarker,bg=}
+\setbeamercolor{mycolor2}{fg=csugold,bg=csugreendarker}
+\setbeamercolor{mycolor3}{fg=fixedtextcolor,bg=}
+
+
+%----------------------------------------------------------------
+% light/dark colors
+%----------------------------------------------------------------
+% global colors
+\colorlet{fixedtextcolor}{nicewhite} % fixed text color
+\colorlet{fixedbgcolor}{csugreen} % fixed background color
+\colorlet{tcolorboxbg}{nicewhite}
+\colorlet{primarycolor}{csugreen}
+\definecolor{graycolor}{gray}{0.95}
+
+% dark/light mode-specific colors
+\if\darkmode1
+
+  \colorlet{textcolor}{nicewhite} % main text color
+  \definecolor{textcolorlight}{HTML}{CCCCCC} % secondary text color
+  \colorlet{textcoloremph}{csugold} % emphasis text color
+  \definecolor{bgcolor}{HTML}{202020} % main background color
+  \definecolor{bgcolorlight}{HTML}{383838} % secondary background color
+  \colorlet{edgecolor}{black!15} % edge color for boxes
+
+\else
+
+  \colorlet{textcolor}{niceblack} % main text color
+  \colorlet{textcolorlight}{csugreen} % secondary text color
+  \colorlet{textcoloremph}{csugreen} % emphasis text color
+  \colorlet{bgcolor}{nicewhite} % main background color
+  \definecolor{bgcolorlight}{gray}{0.95} % secondary background color
+  \colorlet{edgecolor}{black!85} % edge color for boxes
+
+
+\fi

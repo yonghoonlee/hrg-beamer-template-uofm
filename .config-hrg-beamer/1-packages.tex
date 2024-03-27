@@ -1,0 +1,254 @@
+%----------------------------------------------------------------
+% low-level LaTeX programming
+%----------------------------------------------------------------
+
+\newcommand\hmmax{0}
+\newcommand\bmmax{0}
+
+% e-TeX tools for LaTeX
+% https://ctan.org/pkg/etoolbox
+\usepackage{etoolbox}
+
+% macro patching commands
+% https://ctan.org/pkg/xpatch
+\usepackage{xpatch}
+
+% a generic document command parser
+% https://ctan.org/pkg/xparse
+\usepackage{xparse}
+
+% a new interface for environments in LaTeX
+% https://ctan.org/pkg/environ
+\usepackage{environ}
+
+% driver-independent color extensions for LaTeX and pdfLaTeX
+% https://ctan.org/pkg/xcolor
+\usepackage{xcolor}
+
+% print lengths using specified units
+% https://ctan.org/pkg/printlen
+\usepackage{printlen}
+
+% macro package for creating graphics
+% https://ctan.org/pkg/tikz
+\usepackage{tikz}
+
+%----------------------------------------------------------------
+% language and fonts
+%----------------------------------------------------------------
+
+% select font encodings
+% https://www.ctan.org/pkg/fontenc
+\usepackage[T1]{fontenc}
+
+% accept different input encodings
+% https://www.ctan.org/pkg/inputenc
+\usepackage[utf8]{inputenc}
+
+% manages culturally-determined typographical (and other) rules for a wide range of languages
+% https://www.ctan.org/pkg/babel
+\usepackage[english]{babel}
+
+% use Times as default text font, and provide maths support
+% https://ctan.org/pkg/mathptmx
+% \usepackage{mathptmx}
+\usepackage{times}
+% \usepackage{newtx}
+
+% Font Awesome 5 with LaTeX support
+% https://ctan.org/pkg/fontawesome5
+\usepackage{fontawesome5}
+
+% LaTeX support for the Text Companion fonts
+% https://ctan.org/pkg/textcomp
+% \usepackage{textcomp}
+
+% access to PostScript standard Symbol and Dingbats fonts
+% https://ctan.org/pkg/pifont
+% \usepackage{pifont}
+
+%----------------------------------------------------------------
+% text formatting
+%----------------------------------------------------------------
+
+% subliminal refinements towards typographical perfection
+% https://ctan.org/pkg/microtype
+\usepackage[stretch=10]{microtype}
+
+% margin adjustment and detection of odd/even pages
+% https://ctan.org/pkg/changepage
+\usepackage{changepage}
+
+% set space between lines
+% https://ctan.org/pkg/setspace
+% \usepackage{setspace}
+
+% alternative versions of “ragged”-type commands
+% https://ctan.org/pkg/ragged2e
+\usepackage{ragged2e}
+
+% package for underlining
+% https://ctan.org/pkg/ulem
+\usepackage[normalem]{ulem}
+
+% print a coloured contour around text
+% https://ctan.org/pkg/contour
+\usepackage{contour}
+
+%----------------------------------------------------------------
+% math formatting
+%----------------------------------------------------------------
+
+% https://tex.stackexchange.com/questions/32100
+% \usepackage{amsmath} % mathtools below
+\usepackage{amssymb}
+\usepackage{amsthm}
+
+% mathematical tools to use with amsmath
+% https://ctan.org/pkg/mathtools
+\usepackage{mathtools}
+
+% access bold symbols in maths mode
+% https://ctan.org/pkg/bm
+\usepackage{bm}
+
+% improve the typesetting of mathematical matrices with PGF
+% https://ctan.org/pkg/nicematrix
+\usepackage{nicematrix}
+
+% multiple mathematical accents
+% https://ctan.org/pkg/accents
+\usepackage{accents}
+
+% typeset in-line fractions in a "nice" way
+% https://ctan.org/pkg/nicefrac
+\usepackage{nicefrac}
+
+% place lines through maths formulae
+% https://ctan.org/pkg/cancel
+\usepackage{cancel}
+
+% commands to produce dots in math that respect font size
+% https://ctan.org/pkg/mathdots
+\usepackage{mathdots}
+
+%----------------------------------------------------------------
+% float and similar object formatting
+%----------------------------------------------------------------
+
+% enhanced support for graphics
+% https://ctan.org/pkg/graphicx
+\usepackage{graphicx}
+
+% improved interface for floating objects
+% https://ctan.org/pkg/float
+% \usepackage{float}
+
+% graphics package-alike macros for “general” boxes
+% https://ctan.org/pkg/adjustbox
+\usepackage{adjustbox}
+
+% combine LaTeX commands over included graphics
+% https://ctan.org/pkg/overpic
+\usepackage[percent]{overpic}
+
+% support for sub-captions
+% https://ctan.org/pkg/subcaption
+% \usepackage{subcaption}
+
+% Publication quality tables in LaTeX
+% https://ctan.org/pkg/booktabs
+\usepackage{booktabs}
+
+% intermix single and multiple columns
+% https://ctan.org/pkg/multicol
+% \usepackage{multicol}
+
+% create tabular cells spanning multiple rows
+% https://ctan.org/pkg/multirow
+\usepackage{multirow}
+
+% extending the array and tabular environments
+% https://ctan.org/pkg/array
+% \usepackage{array}
+
+% coloured boxes, for LaTeX examples and theorems, etc
+% https://ctan.org/pkg/tcolorbox
+\usepackage[most]{tcolorbox}
+
+% a simple type of box for LaTeX
+% https://ctan.org/pkg/minibox
+\usepackage{minibox}
+
+% variants of \fbox and other games with boxes
+% https://ctan.org/pkg/fancybox
+% \usepackage{fancybox}
+
+% typeset source code listings using LaTeX
+% https://ctan.org/pkg/listings
+\usepackage{listings}
+
+% place boxes at arbitrary positions on the LaTeX page
+% https://ctan.org/pkg/textpos
+\usepackage[absolute,overlay]{textpos}
+
+%----------------------------------------------------------------
+% cross-referencing
+%----------------------------------------------------------------
+
+% extensive support for hypertext in LaTeX
+% https://ctan.org/pkg/hyperref
+\usepackage{hyperref}
+
+% a new bookmark (outline) organization for hyperref
+% https://ctan.org/pkg/bookmark
+\usepackage{bookmark}[2019/12/03]
+
+% line-breakable \url-like links in hyperref when compiling via dvips/ps2pdf
+% https://ctan.org/pkg/breakurl
+% \usepackage{breakurl}
+
+% notes after every paragraph (or elsewhere)
+% https://ctan.org/pkg/parnotes
+\usepackage[restart]{parnotes}
+
+% a range of footnote options
+% https://ctan.org/pkg/footmisc
+% https://tex.stackexchange.com/questions/28736
+% \usepackage[para]{footmisc}
+
+% context sensitive quotation facilities
+% https://ctan.org/pkg/csquotes
+\usepackage{csquotes}
+
+%----------------------------------------------------------------
+% references
+%----------------------------------------------------------------
+
+% sophisticated Bibliographies in LaTeX
+% https://ctan.org/pkg/biblatex
+\usepackage[style=authoryear,giveninits=true]{biblatex}
+
+%----------------------------------------------------------------
+% other
+%----------------------------------------------------------------
+
+% change format of \today with commands for current time
+% https://ctan.org/pkg/datetime
+\usepackage[yyyymmdd]{datetime}
+
+% generate QR codes in LaTeX
+% https://ctan.org/pkg/qrcode
+\usepackage{qrcode}
+
+% producing 'blind' text for testing
+% https://ctan.org/pkg/blindtext
+\usepackage{blindtext}
+
+% 150 paragraphs of the Lorem Ipsum dummy text provided
+% https://www.ctan.org/pkg/lipsum
+\usepackage{lipsum}
+
+% display various elements of a document's layout
+% https://ctan.org/pkg/layouts
+% \usepackage{layouts}

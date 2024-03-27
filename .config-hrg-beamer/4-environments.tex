@@ -1,0 +1,135 @@
+%---------------------------------------------------------
+% slide environments
+%---------------------------------------------------------
+
+% main myslide
+\newenvironment{myslide}[2]
+{\begin{frame}[#1]%
+\frametitle{{\mytitlemark #2}}%
+\transfade[duration=0.1]
+}%
+{\parnotes\end{frame}}
+
+% fragile myslide for listings (and other things)
+\newenvironment{myslidefragile}[2]
+{\begin{frame}[fragile,environment=myslidefragile,#1]%
+\frametitle{{\mytitlemark {#2}}}%
+\transfade[duration=0.1]
+}%
+{\parnotes\end{frame}}
+
+%---------------------------------------------------------
+% custom theorem-like environments
+%---------------------------------------------------------
+
+% theorems
+\newenvironment{mytheorem}[1]
+{\begin{theorem}[#1]\RaggedRight
+}%
+{\end{theorem}}
+
+% definitions
+\newtheorem{xdefinition}{Definition}
+\newenvironment{mydefinition}[1]
+{\begin{xdefinition}[#1]\RaggedRight
+}%
+{\end{xdefinition}}
+
+% algorithms
+\newtheorem{xalgorithm}{Algorithm}
+\newenvironment{myalgorithm}[1]
+{\begin{xalgorithm}[#1]\RaggedRight
+}%
+{\end{xalgorithm}}
+
+%---------------------------------------------------------
+% boxes
+%---------------------------------------------------------
+% define the main box command
+\newcommand{\mybox}[5]{\begin{adjustwidth}{-0.1\textwidth}{0mm}
+\tcbsidebyside[bicolor,
+sidebyside adapt=left,
+sidebyside align=center seam,
+overlay={\draw[solid,#4,line width=2pt] (segmentation.north)--(segmentation.south);},
+center,
+% boxrule=0pt,
+arc=0pt,
+sidebyside gap=3.5mm,
+left=1mm,
+right=1mm,
+top=1.5mm,
+bottom=1.5mm,
+boxsep=0mm,
+fontupper={\color{#4}}, % niceblue!25!white
+fontlower={\small\color{textcolor}},
+frame hidden,
+colback=bgcolor,
+colbacklower=bgcolorlight,
+% before skip=0.25\baselineskip,
+% after skip=0.35\baselineskip,
+before skip=\dimexpr\myitemsep+1pt,
+after skip=\dimexpr\myitemsep+3pt,
+]{%
+{\begin{minipage}{\widthof{#1}}\centering \footnotesize
+#2\\\vspace{1.5pt} \scalebox{1.25}{#3}
+\end{minipage}}%
+}{%
+#5%
+}%
+\end{adjustwidth}}
+
+% several different box environments
+\newcommand{\myboxword}{\footnotesize Upcoming}
+
+\NewEnviron{myremark}{%
+\mybox{\myboxword}{Remark}{\faComment}{niceblue}{\BODY}}
+
+\NewEnviron{myimportant}{%
+\mybox{\myboxword}{Important}{\faExclamationCircle}{nicegreen}{\BODY}}
+
+\NewEnviron{myfuture}{%
+\mybox{\myboxword}{Upcoming}{\faForward}{nicepink}{\BODY}}
+
+\NewEnviron{myquestion}{%
+\mybox{\myboxword}{Question}{\faQuestionCircle}{nicered}{\BODY}}
+
+\NewEnviron{myoptional}{%
+\mybox{\myboxword}{Optional}{\faComment}{niceblue}{\BODY}}
+
+\NewEnviron{myreview}[1]{%
+\mybox{\myboxword}{Review}{\faBackward}{nicegray}{\textcolor{nicegray}{[#1]} \BODY}}
+
+
+
+\NewEnviron{blockfinaleq}{\bgroup \belowdisplayskip=0pt\belowdisplayshortskip=0pt%
+\BODY%
+\egroup%
+}
+
+
+%---------------------------------------------------------
+\renewenvironment{quote}[1][1em]
+  {\itshape\begin{adjustwidth}{#1}{#1}}
+  {\end{adjustwidth}}
+
+%---------------------------------------------------------
+\NewEnviron{mytable}{%
+\myspace%
+\begin{center}%
+\def\arraystretch{1.2}%
+\BODY%
+\end{center}%
+\myspace%
+}%
+
+
+%---------------------------------------------------------
+% \newsavebox{\picbox}
+% \newcommand{\cutpic}[3]{
+%   \savebox{\picbox}{\includegraphics[width=#2]{#3}}
+%   \tikz\node [draw, rounded corners=#1, line width=0.5pt,
+%     color=black, minimum width=\wd\picbox,
+%     minimum height=\ht\picbox, path picture={
+%       \node at (path picture bounding box.center) {
+%         \usebox{\picbox}};
+%     }] {};}

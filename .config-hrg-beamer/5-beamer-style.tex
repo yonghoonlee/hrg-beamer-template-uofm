@@ -1,0 +1,485 @@
+%----------------------------------------------------------------
+% set colors
+%----------------------------------------------------------------
+% dark/light dependent
+\setbeamercolor{title}{fg=textcolor, bg=}
+\setbeamercolor{institute}{fg=textcolor, bg=bgcolor}
+\setbeamercolor{background canvas}{bg=bgcolor}
+\setbeamercolor{normal text}{fg=textcolor}
+\setbeamercolor{titlelike}{fg=textcolor,bg=}
+
+
+\setbeamercolor{block body}{bg=bgcolorlight, fg=textcolor}
+\setbeamercolor{block title}{bg=fixedbgcolor, fg=fixedtextcolor}
+
+\setbeamercolor{frametitle}{fg=textcolor, bg=}
+\setbeamercolor{section in toc}{fg=textcolor}
+\setbeamercolor{subsection in toc}{fg=textcolorlight}
+
+
+
+\setbeamercolor{enumerate item}{fg=textcoloremph}
+\setbeamercolor{itemize item}{fg=textcoloremph}
+\setbeamercolor{local structure}{fg=textcoloremph}
+\setbeamercolor{caption name}{fg=textcoloremph}
+\setbeamercolor{footlinecolor}{fg=textcoloremph,bg=}
+
+\setbeamercolor{bibliography item}{fg=textcoloremph}
+\setbeamercolor{bibliography entry author}{fg=textcolor}
+\setbeamercolor{bibliography entry title}{fg=textcoloremph}
+% \setbeamercolor{bibliography entry location}{fg=orange}
+\setbeamercolor{bibliography entry note}{fg=textcolor}
+
+
+\setbeamercolor{footnote}{fg=xprimarycolor,bg=}
+\setbeamercolor{footnote mark}{fg=xprimarycolor,bg=}
+
+%----------------------------------------------------------------
+% formatting changes
+%----------------------------------------------------------------
+\mode<presentation>
+{
+	\useinnertheme[]{circles}
+	\useoutertheme[footline=authortitle,subsection=false]{miniframes}
+	\usecolortheme{whale}
+	\setbeamercolor*{palette primary}{use=structure, fg=fixedtextcolor, bg=primarycolor}
+	\setbeamercolor*{palette secondary}{use=structure, fg=fixedtextcolor, bg=primarycolor}
+	\setbeamercolor*{palette tertiary}{use=structure, fg=fixedtextcolor, bg=primarycolor}
+	\usefonttheme[onlymath]{serif}
+	% \usefonttheme{serif}
+}
+
+% remove navigation bar
+\beamertemplatenavigationsymbolsempty
+
+% headline formatting
+\makeatletter
+\setbeamertemplate{headline}
+{%
+  \vskip-0.6ex
+  \begin{beamercolorbox}{section in head/foot}
+  \vskip2pt\insertnavigation{\paperwidth}\vskip2pt
+  \end{beamercolorbox}%
+}
+\makeatother
+
+% footer formatting
+\setbeamertemplate{footline}{}
+
+% table of contents formatting
+\setbeamertemplate{sections/subsections in toc}[sections numbered]
+
+% equation number formatting
+\makeatletter
+\def\tagform@#1{\maketag@@@{\textcolor{textcoloremph}{(\ignorespaces#1\unskip\@@italiccorr)}}}
+\makeatother
+
+
+% itemize/enumerate formatting
+\setbeamertemplate{itemize/enumerate body begin}{\normalsize}
+\setbeamertemplate{itemize/enumerate subbody begin}{\normalsize}
+\setbeamertemplate{itemize/enumerate subsubbody begin}{\normalsize}
+
+\setbeamertemplate{itemize item}[circle]
+% \setbeamertemplate{itemize subitem}[a]
+% \setbeamertemplate{itemize subsubitem}[ball]
+
+% \setbeamertemplate{enumerate item}{\insertenumlabel.}
+% \setbeamertemplate{enumerate item}{(\alph{enumi})}
+\setbeamertemplate{enumerate item}{%
+  \usebeamercolor[bg]{item projected}%
+  \color{bg}\normalsize\insertenumlabel.%
+}
+
+\setbeamertemplate{enumerate subitem}[default]
+\setbeamertemplate{enumerate subsubitem}[default]
+
+% \setbeamertemplate{enumerate subitem}{%
+%   \usebeamercolor[bg]{item projected}%
+%   \color{bg}\normalsize\insertenumlabeli.%
+% }
+
+% https://tex.stackexchange.com/questions/225736
+\makeatletter
+\newlength{\myitemsep}
+\setlength{\myitemsep}{3pt}
+\newcommand{\my@beamer@setsep}{%
+\ifnum\@itemdepth=1\relax
+     \setlength\itemsep{\my@beamer@itemsepi}% separation for first level
+     \setlength\topsep{\my@beamer@itemsepi}% separation for first level
+   \else
+     \ifnum\@itemdepth=2\relax
+       \setlength\itemsep{\my@beamer@itemsepii}% separation for second level
+       \setlength\topsep{\my@beamer@itemsepii}% separation for second level
+     \else
+       \ifnum\@itemdepth=3\relax
+         \setlength\itemsep{\my@beamer@itemsepiii}% separation for third level
+         \setlength\topsep{\my@beamer@itemsepiii}% separation for second level
+   \fi\fi\fi}
+\newlength{\my@beamer@itemsepi}\setlength{\my@beamer@itemsepi}{\myitemsep}
+\newlength{\my@beamer@itemsepii}\setlength{\my@beamer@itemsepii}{\myitemsep}
+\newlength{\my@beamer@itemsepiii}\setlength{\my@beamer@itemsepiii}{\myitemsep}
+\newcommand\setlistsep[3]{%
+    \setlength{\my@beamer@itemsepi}{#1}%
+    \setlength{\my@beamer@itemsepii}{#2}%
+    \setlength{\my@beamer@itemsepiii}{#3}%
+}
+\xpatchcmd{\itemize}
+  {\def\makelabel}
+  {\my@beamer@setsep\def\makelabel}
+ {}
+ {}
+
+\xpatchcmd{\beamer@enum@}
+  {\def\makelabel}
+  {\my@beamer@setsep\def\makelabel}
+ {}
+ {}
+\makeatother
+
+
+%
+\setbeamertemplate{frametitle continuation}[from second][(Continued)]
+
+%----------------------------------------------------------------
+% reference formatting
+%----------------------------------------------------------------
+
+% avoid line breaks in bib
+% https://stackoverflow.com/questions/57382286
+\setbeamertemplate{bibliography entry article}{}
+\setbeamertemplate{bibliography entry title}{}
+\setbeamertemplate{bibliography entry location}{}
+\setbeamertemplate{bibliography entry note}{}
+
+% set bib icon
+% \setbeamertemplate{bibliography item}[text]
+\renewcommand{\pgfuseimage}[1]{\raisebox{0.04in}{\faBookmark}}
+
+% disable months and days
+\AtEveryBibitem{\clearfield{month}}
+\AtEveryBibitem{\clearfield{day}}
+
+% disable pages
+\AtEveryBibitem{\clearfield{pages}}
+
+% disable address
+\AtEveryBibitem{\clearlist{location}}
+
+% disable in:
+\renewbibmacro{in:}{}
+
+% customize doi
+% https://tex.stackexchange.com/questions/446145
+\DeclareFieldFormat{doi}{%
+	\color{textcolorlight}%
+	DOI\addcolon\space
+	\ifhyperref
+	{\href{https://doi.org/#1}{\nolinkurl{#1}}}
+	{\nolinkurl{#1}}}
+\DeclareFieldFormat{url}{%
+	\color{textcolorlight}%
+	URL\addcolon\space
+	\ifhyperref
+	{\href{#1}{\nolinkurl{#1}}}
+	{\nolinkurl{#1}}}
+
+% change url style
+% https://tex.stackexchange.com/questions/79051
+% \renewcommand\UrlFont{\rmfamily}
+\renewcommand\UrlFont{\sffamily}
+
+% remove final full stop
+% https://tex.stackexchange.com/questions/187443
+\renewcommand{\finentrypunct}{}
+
+%
+\DeclareNameAlias{sortname}{first-last}
+
+
+
+%
+% https://tex.stackexchange.com/questions/203764
+\renewcommand*{\bibfont}{\small}
+
+% 
+\RaggedRight
+\let\raggedright=\RaggedRight
+
+
+% 
+\makeatletter
+\def\@minipagerestore{\RaggedRight}
+\makeatother
+
+% 
+\addtobeamertemplate{block begin}{%
+    \centering%
+    \setlength{\textwidth}{0.85\textwidth}%
+}{}
+
+
+% 
+\BeforeBeginEnvironment{block}{\begin{adjustbox}{minipage={\linewidth}, center}}
+\AfterEndEnvironment{block}{\end{adjustbox}\vspace*{0.05in}}
+
+
+%----------------------------------------------------------------
+% set fonts
+%----------------------------------------------------------------
+\setbeamerfont{title}{size=\huge}
+\setbeamerfont{institute}{size=\footnotesize}
+\setbeamerfont{date}{size=\footnotesize}
+
+
+
+% \setbeamerfont{footnote}{size=\scriptsize}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+%----------------------------------------------------------------
+% new and redefined commands (formatting)
+%----------------------------------------------------------------
+
+\makeatletter
+\newcommand*\fix@beamer@close{%
+  \ifnum\beamer@trivlistdepth>0%
+    \beamer@closeitem%
+  \fi%
+}%
+\newcommand*\fix@beamer@open{%
+  \ifnum\beamer@trivlistdepth>0%
+    \gdef\beamer@closeitem{}%
+  \fi%
+}%
+
+
+% footnote formatting
+\renewcommand{\parnotefmt}[1]{\vfill\onslide<1->\setbeamercovered{} \centerline{\colorbox{bgcolorlight}{\parbox{\textwidth}{\footnotesize\noindent #1}}}}
+
+\makeatother
+
+% footnote marker formatting
+\renewcommand{\parnotecusmarkfmt}[1]{{\color{textcoloremph}\textsuperscript{#1}}}
+
+% circled command in mysectionpage
+\newcommand*\mycircled[1]{\tikz[baseline=(char.base)]{%
+\node[shape=circle,draw,inner sep=2pt, line width=0.5mm] (char) {\large#1};}\vspace{0.2in}\\%
+}
+
+% ?
+\makeatletter
+\let\beamer@writeslidentry@miniframeson=\beamer@writeslidentry
+\def\beamer@writeslidentry@miniframesoff{%
+  \expandafter\beamer@ifempty\expandafter{\beamer@framestartpage}{}% does not happen normally
+  {%else
+    % removed \addtocontents commands
+    \clearpage\beamer@notesactions%
+  }
+}
+\newcommand*{\miniframeson}{\let\beamer@writeslidentry=\beamer@writeslidentry@miniframeson}
+\newcommand*{\miniframesoff}{\let\beamer@writeslidentry=\beamer@writeslidentry@miniframesoff}
+\makeatother
+
+
+% left align miniframes on top of slide and place slide number
+\newlength\sectionsep
+\setlength\sectionsep{6pt}% default 1.875ex plus 1fill
+
+\makeatletter
+\def\sectionentry#1#2#3#4#5{% section number, section title, page
+  \ifnum#5=\c@part%
+  \beamer@section@set@min@width
+  \box\beamer@sectionbox\hskip\sectionsep%original: 1.875ex plus 1fill%
+  \beamer@xpos=0\relax%
+  \beamer@ypos=1\relax%
+  \setbox\beamer@sectionbox=
+  \hbox{\def\insertsectionhead{#2}%
+    \def\insertsectionheadnumber{#1}%
+    \def\insertpartheadnumber{#5}%
+    {%
+      \usebeamerfont{section in head/foot}\usebeamercolor[fg]{section in head/foot}%
+      \ifnum\c@section=#1%
+        \hyperlink{Navigation#3}{{\usebeamertemplate{section in head/foot}}}%
+      \else%
+        \hyperlink{Navigation#3}{{\usebeamertemplate{section in head/foot shaded}}}%
+      \fi}%
+  }%
+  \ht\beamer@sectionbox=1.875ex%
+  \dp\beamer@sectionbox=0.75ex%
+  \fi\ignorespaces}
+\def\insertnavigation#1{%
+  \vbox{{%
+    \usebeamerfont{section in head/foot}\usebeamercolor[fg]{section in head/foot}%
+    \beamer@xpos=0\relax%
+    \beamer@ypos=1\relax%
+    \hbox to #1{\hskip\sectionsep\setbox\beamer@sectionbox=\hbox{\kern1sp}%
+      \ht\beamer@sectionbox=1.875ex%
+      \dp\beamer@sectionbox=0.75ex%
+        \hskip-\sectionsep% original -1.875ex plus 1fill
+        \global\beamer@section@min@dim\z@
+        \dohead%\hskip\sectionsep%
+        \beamer@section@set@min@width
+      \box\beamer@sectionbox\hfill\hfill%
+      \raisebox{-2pt}{\insertframenumber}\hskip\sectionsep%
+      %\hfill%\hskip.3cm
+      }%
+  }}}
+\makeatother
+
+%----------------------------------------------------------------
+% new and redefined commands (new things)
+%----------------------------------------------------------------
+
+% line command
+\newcommand{\myline}[1]{\begin{center}\textcolor{textcoloremph}{\rule{#1}{0.8pt}}\end{center}}
+
+
+% \newcommand{\mylinewhite}[1]{\textcolor{white}{\rule{#1}{0.8pt}}}
+
+% 
+% initialize section counter
+\newcounter{seccount}
+\setcounter{seccount}{0}
+
+\newcommand{\mysectionpage}[1]{
+\stepcounter{seccount}
+\miniframesoff
+\bgroup
+\setbeamercolor{background canvas}{bg=fixedbgcolor}
+\begin{frame}[noframenumbering,plain]
+
+\begin{tikzpicture}[overlay, remember picture]
+\node[anchor=center] at (current page.center) {
+\begin{beamercolorbox}[center]{title}
+\vspace*{-0.7in}%
+\begin{columns}%
+\column{0.90\textwidth}%
+\centering%
+\Huge%
+\color{fixedtextcolor}%
+{\mycircled{\theseccount} #1}%
+\end{columns}%
+\end{beamercolorbox}};
+\end{tikzpicture}
+
+\end{frame}
+\egroup
+\miniframeson
+
+}
+
+
+
+
+%-----------
+% animations
+
+\setbeamercovered{transparent}
+
+\setbeamercovered{still covered={\opaqueness<1->{25}},again covered={\opaqueness<1->{25}}}
+
+% \setbeamercovered{still covered={\opaqueness<1->{5}},again covered={\opaqueness<1->{60}}}
+
+% begining of the new definition
+% \makeatletter
+% \newcommand*\fix@beamer@close{%
+%   \ifnum\beamer@trivlistdepth>0%
+%     \beamer@closeitem%
+%   \fi%
+% }%
+% \newcommand*\fix@beamer@open{%
+%   \ifnum\beamer@trivlistdepth>0%
+%     \gdef\beamer@closeitem{}%
+%   \fi%
+% }%
+% \makeatother
+
+\makeatletter
+
+\BeforeBeginEnvironment{itemize}{\fix@beamer@close}
+\AfterEndEnvironment{itemize}{\fix@beamer@open}
+
+\BeforeBeginEnvironment{enumerate}{\fix@beamer@close}
+\AfterEndEnvironment{enumerate}{\fix@beamer@open}
+
+\BeforeBeginEnvironment{myremark}{\fix@beamer@close%
+}
+\AfterEndEnvironment{myremark}{\fix@beamer@open%
+}
+
+\BeforeBeginEnvironment{myimportant}{\fix@beamer@close%
+}
+\AfterEndEnvironment{myimportant}{\fix@beamer@open%
+}
+
+\BeforeBeginEnvironment{myfuture}{\fix@beamer@close%
+}
+\AfterEndEnvironment{myfuture}{\fix@beamer@open%
+}
+
+\BeforeBeginEnvironment{myquestion}{\fix@beamer@close%
+}
+\AfterEndEnvironment{myquestion}{\fix@beamer@open%
+}
+
+\BeforeBeginEnvironment{myoptional}{\fix@beamer@close%
+}
+\AfterEndEnvironment{myoptional}{\fix@beamer@open%
+}
+
+\BeforeBeginEnvironment{myreview}{\fix@beamer@close%
+}
+\AfterEndEnvironment{myreview}{\fix@beamer@open%
+}
+
+\BeforeBeginEnvironment{figbox}{\fix@beamer@close%
+}
+\AfterEndEnvironment{figbox}{\fix@beamer@open%
+}
+
+\BeforeBeginEnvironment{columns}{\fix@beamer@close%
+}
+\AfterEndEnvironment{columns}{\fix@beamer@open%
+}
+
+\BeforeBeginEnvironment{column}{\fix@beamer@close%
+}
+\AfterEndEnvironment{column}{\fix@beamer@open%
+}
+
+\BeforeBeginEnvironment{mytheorem}{\fix@beamer@close%
+}
+\AfterEndEnvironment{mytheorem}{\fix@beamer@open%
+}
+
+\BeforeBeginEnvironment{extraleftalign}{\fix@beamer@close%
+}
+\AfterEndEnvironment{extraleftalign}{\fix@beamer@open%
+}
+
+\makeatother
+% end of the new definition
+
+\usepackage{fixpauseincludegraphics}
+
+\NewEnviron{extraleftalign}[1]{%
+\newline\vspace*{-1pt}%
+\setlength{\belowdisplayskip}{5pt}%
+\addtocounter{beamerpauses}{-1}\uncover<+->{\makebox[\linewidth]{\hspace{#1}\parbox{\dimexpr\linewidth-#1}{%
+\begin{align}%
+\BODY
+\end{align}
+}}}%
+}
