@@ -1,0 +1,198 @@
+\subsection*{Slide Examples}
+%------------------------------
+\begin{myslide}{c}{Bulleted List Slide Example}
+
+\begin{columns}
+
+\begin{column}{1\textwidth}
+
+\begin{itemize}
+
+\item \lipsum[1][1-2]
+
+\item \lipsum[1][3]
+
+\item \lipsum[1][4-5]
+
+\item \lipsum[1][6]
+
+\end{itemize}
+
+\end{column}
+
+\end{columns}
+
+\end{myslide}
+
+%------------------------------
+\begin{myslide}{c}{Side-by-Side Bulleted List + Figure Slide Example}
+
+\begin{columns}
+
+\begin{column}{0.65\textwidth}
+
+\begin{itemize}
+
+\item \lipsum[1][1-2]
+
+\item \lipsum[1][3]
+
+\item \lipsum[1][4-5]
+
+\item \lipsum[1][6]
+
+\end{itemize}
+
+\end{column}
+
+\myfigcol{../figures/csu.pdf}{0.25}
+
+\end{columns}
+
+\end{myslide}
+
+%------------------------------
+\begin{myslide}{c}{Top-Bottom Figure + Bulleted List Slide Example}
+
+\myfig{../figures/csu.pdf}{0.25}
+
+\myspace
+
+\begin{columns}
+
+\begin{column}{1\textwidth}
+
+\begin{itemize}
+
+\item \lipsum[1][1-2]
+
+\item \lipsum[1][3]
+
+\item \lipsum[1][4-5]
+
+\item \lipsum[1][6]
+
+\end{itemize}
+
+\end{column}
+
+\end{columns}
+
+\end{myslide}
+
+%------------------------------
+\begin{myslide}{c}{Side-by-Side Figures Slide Example}
+
+\begin{columns}
+
+\myfigcol{../figures/csu.pdf}{0.25}
+
+\myfigcol{../figures/csu.pdf}{0.25}
+
+\end{columns}
+
+\end{myslide}
+
+\subsection*{Other}
+%------------------------------
+\begin{myslide}{c}{Colors}
+
+\begin{itemize}
+
+\item General colors:
+\textcolor{niceblue}{niceblue}
+\textcolor{nicered}{nicered}
+\textcolor{nicegreen}{nicegreen}
+\textcolor{nicepink}{nicepink}
+\textcolor{nicegray}{nicegray}
+
+\item Grays:
+\textcolor{lightgray}{lightgray}
+\textcolor{mediumgray}{mediumgray}
+\textcolor{darkergray}{darkergray}
+
+\item CSU colors:
+\textcolor{csugreen}{csugreen}
+\textcolor{csugold}{csugold}
+\textcolor{csugreendarker}{csugreendarker}
+
+
+\item Beamer theme colors (global):
+\textcolor{fixedtextcolor}{fixedtextcolor}
+\textcolor{fixedbgcolor}{fixedbgcolor}
+\textcolor{tcolorboxbg}{tcolorboxbg}
+\textcolor{primarycolor}{primarycolor}
+\textcolor{graycolor}{graycolor}
+
+\item Beamer theme colors (light/dark):
+\textcolor{textcolor}{textcolor}
+\textcolor{textcolorlight}{textcolorlight}
+\textcolor{textcoloremph}{textcoloremph}
+\textcolor{bgcolor}{bgcolor}
+\textcolor{bgcolorlight}{bgcolorlight}
+\textcolor{edgecolor}{edgecolor}
+
+\end{itemize}
+
+\end{myslide}
+
+%------------------------------
+\begin{myslide}{c}{Nested \lstinline{itemize} and \lstinline{enumerate} Environments}
+
+
+
+\begin{itemize}
+
+\item Apples
+
+\begin{itemize}
+
+\item Apples
+
+\begin{itemize}
+
+\item Apples
+
+\item Apples
+
+\end{itemize}
+
+\item Apples
+
+\item Apples
+
+\end{itemize}
+
+\item Apples
+
+\end{itemize}
+
+\begin{enumerate}
+
+\item Oranges
+
+\begin{enumerate}
+
+\item Oranges
+
+\item Oranges
+
+\begin{enumerate}
+
+\item Oranges
+
+\item Oranges
+
+\end{enumerate}
+
+\item Oranges
+
+\end{enumerate}
+
+\item Oranges
+
+\item Oranges
+
+\end{enumerate}
+
+\end{myslide}

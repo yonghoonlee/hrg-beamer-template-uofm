@@ -1,0 +1,74 @@
+%------------------------------
+\def\shareable{1}
+\newcommand{\configpath}{../.config-hrg-beamer/}
+\newcommand{\specificpath}{../.config-specific/}
+
+%------------------------------
+\usepackage{import}
+
+\import{\configpath}{1-packages}
+
+\import{\configpath}{2-colors}
+
+\import{\configpath}{3-commands}
+
+\import{\configpath}{4-environments}
+
+\import{\configpath}{5-beamer-style}
+
+\import{\specificpath}{6-presentation-specific}
+
+\import{\configpath}{front} % contains \begin{document}
+
+%------------------------------
+\section{General}
+\mysectionpage{General}
+\include{sections/general}
+
+%------------------------------
+\section{Environments}
+\mysectionpage{Environments}
+\include{sections/environments}
+
+%------------------------------
+\section{Commands}
+\mysectionpage{Commands}
+\include{sections/commands}
+
+%------------------------------
+\section{Math}
+\mysectionpage{Math}
+\include{sections/math}
+
+%------------------------------
+\section{Figures}
+\mysectionpage{Figures}
+\include{sections/figures}
+
+%------------------------------
+% \section{Animations}
+% \mysectionpage{Animations}
+% \include{sections/animations}
+
+%------------------------------
+\section{References}
+\mysectionpage{References}
+\include{sections/references}
+
+%------------------------------
+% list all \myterm
+\mytermslides
+
+%------------------------------
+% list all cited references
+\refslides
+
+%------------------------------
+\include{sections/final}
+
+%------------------------------
+\appendix
+\section{Appendix}
+\input{sections/appendix}
+
+\end{document}

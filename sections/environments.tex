@@ -1,0 +1,126 @@
+%------------------------------
+\begin{myslide}{c}{Quote}
+
+\begin{quote}
+\lipsum[1][1-6]
+\end{quote}
+
+\end{myslide}
+
+%------------------------------
+\begin{myslide}{c}{Theorem, Definition, and Algorithm}
+
+\begin{mytheorem}{Some Text}
+\lipsum[1][1-5]
+\end{mytheorem}
+
+\begin{mydefinition}{Some Text}
+\lipsum[1][1-3]
+\end{mydefinition}
+
+\begin{myalgorithm}{Some Text}
+\lipsum[1][1-3]
+\end{myalgorithm}
+
+\end{myslide}
+
+%------------------------------
+\begin{myslide}{c}{Special Call-Out Boxes (1)}
+
+\begin{columns}
+
+\begin{column}{1\textwidth}
+
+\begin{itemize}
+
+\item These are intended to be in an itemize/enumerate environment
+
+\item[]
+\begin{myremark}
+\lipsum[1][1]
+\end{myremark}
+
+\begin{myimportant}
+\lipsum[1][1-2]
+\end{myimportant}
+
+\begin{myfuture}
+\lipsum[1][3-6]
+\end{myfuture}
+
+\begin{myquestion}
+\lipsum[1][2-3]
+\end{myquestion}
+
+\end{itemize}
+
+\end{column}
+
+\end{columns}
+
+\end{myslide}
+
+%------------------------------
+\begin{myslide}{c}{Special Call-Out Boxes (2)}
+
+\begin{columns}
+
+\begin{column}{1\textwidth}
+
+\begin{itemize}
+
+\item[]
+\begin{myoptional}
+\lipsum[1][1-6]
+\end{myoptional}
+
+\begin{myreview}{Review Context}
+\lipsum[2][1-3]
+\end{myreview}
+
+\begin{itemize}
+
+\item[]
+\begin{myreview}{Review Context}
+\lipsum[2][1-3]
+\end{myreview}
+
+\begin{itemize}
+
+\item[]
+\begin{myreview}{Review Context}
+\lipsum[2][1-3]
+\end{myreview}
+
+\end{itemize}
+
+\end{itemize}
+
+\end{itemize}
+
+\end{column}
+
+\end{columns}
+
+\end{myslide}
+
+%------------------------------
+\begin{myslidefragile}{c}{Code Listing}
+
+Some Matlab code:
+\begin{lstlisting}[xleftmargin=0pt]
+% This program prints Hello, world!
+
+disp("Hello, world!")
+\end{lstlisting}
+
+Some Python code:
+\begin{lstlisting}[xleftmargin=0pt,language=Python]
+# This program prints Hello, world!
+
+print('Hello, world!')
+\end{lstlisting}
+
+Be sure to use the \lstinline{myslidefragile} environment!
+
+\end{myslidefragile}

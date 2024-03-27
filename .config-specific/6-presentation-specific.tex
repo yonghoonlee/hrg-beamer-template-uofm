@@ -1,0 +1,71 @@
+\addbibresource{../references.bib}
+
+% title
+\title{\LARGE{\texorpdfstring{%
+Title
+}{%
+PDF Title
+}}}
+
+% author
+\author{\texorpdfstring{{\scalebox{0.9}{\faUser}}~Name}{PDF Name}}
+
+
+% institute
+\institute{
+\minibox[c]{\scalebox{0.9}{\faUniversity}~Colorado State University -- Department of Systems Engineering \\%
+\scalebox{0.9}{\faEnvelope}~\href{mailto:daniel.herber@colostate.edu}{daniel.herber@colostate.edu}
+}
+
+\vspace*{\baselineskip}
+
+\begin{textblock}{3}(0,11.5)
+\if\darkmode1
+\includegraphics[height=0.6in]{figures/csu-white.pdf}
+\else
+\includegraphics[height=0.6in]{figures/csu.pdf}
+\fi
+\end{textblock}
+}
+
+
+\newcommand*{\tran}{^{\intercal}}
+
+\renewcommand{\ULdepth}{1.8pt}
+\contourlength{0.8pt}
+
+\newcommand{\myuline}[1]{%
+  \uline{\phantom{#1}}%
+  \llap{\contour{white}{#1}}%
+}
+
+
+\newcommand{\sessiontaskremark}{%
+\begin{myimportant}
+
+\begin{itemize}
+
+\item Submit a document (.pdf \scalebox{0.9}{\faFilePdf} or .doc/x \scalebox{0.9}{\faFileWord}) summarizing your answers to the questions
+
+\item Submit all code used to answer the questions
+
+\item A .zip \scalebox{0.9}{\faFileArchive} file containing these files is preferred if you have multiple files
+
+\item Please provide guidance on how I should review your submission if there are many files
+
+\end{itemize}
+
+\end{myimportant}%
+}%
+
+\newcommand{\ec}[1]{\xeqq{\faStar{} Extra credit ({#1} pts):}}
+
+
+%------------------
+% semester-specific commands
+\newcommand{\courseid}{170091}
+\newcommand{\courseurl}[1]{https://colostate.instructure.com/courses/\courseid#1}
+
+\newcommand{\reviewmaterialsurl}{\href{\courseurl{/files/28134160}}{\textcolor{textcoloremph}{\scalebox{0.9}{\faLink}~Linear Algebra and Calculus Review}}}
+
+\newcommand{\reviewmaterials}{Please see the course \reviewmaterialsurl{} for resources and examples}

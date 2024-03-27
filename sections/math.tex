@@ -1,0 +1,50 @@
+%------------------------------
+\begin{myslide}{c}{\lstinline{subequations} and Tags}
+
+Multi-line aligned equation with some custom tags:
+\begin{subequations}
+\begin{align}
+y &= x^2 \\
+z &= \sin(x) \notag \\
+p &= \log(x) \\
+q &= e^{x} \tag{A}
+\end{align}
+\end{subequations}
+
+\end{myslide}
+
+%------------------------------
+\begin{myslide}{c}{\lstinline{eqbox} Command}
+
+This is an equation: \eqbox{A = \frac{\pi r^2}{2}}. Here it is again:
+\begin{align}
+A & = \eqbox{\frac{\pi r^2}{2}}
+\end{align}
+
+Another a symbol is \eqbox{\alpha}
+
+\end{myslide}
+
+%------------------------------
+\begin{myslide}{c}{\lstinline{bNiceMatrix} and \lstinline{pNiceMatrix} Environments}
+
+\begin{align}
+\begin{bNiceMatrix}[first-row,first-col]
+& \bm{c}_1 & \bm{c}_2 & \bm{c}_3 \\
+\bm{r}_1 & 1 & 2 & 3 \\
+\bm{r}_2 & 4 & 5 & 6
+\end{bNiceMatrix}
+\end{align}
+
+\begin{align}
+\begin{pNiceMatrix}[first-row,last-row,first-col,last-col,nullify-dots]
+& C_1 & \Cdots & & C_4 & \\
+L_1 & a_{11} & a_{12} & a_{13} & a_{14} & L_1 \\
+\Vdots & a_{21} & a_{22} & a_{23} & a_{24} & \Vdots \\
+& a_{31} & a_{32} & a_{33} & a_{34} & \\
+L_4 & a_{41} & a_{42} & a_{43} & a_{44} & L_4 \\
+& C_1 & \Cdots & & C_4 &
+\end{pNiceMatrix}
+\end{align}
+
+\end{myslide}

@@ -1,0 +1,14 @@
+!.gitignore
+
+# ignore certain file extensions
+*.ini
+*.asv
+*.synctex.gz
+*.synctex.gz.sum.synctex
+*.synctex(busy)
+*.sublime-workspace
+
+# ignore certain folders
+**/.build/
+
+# ignore specific files

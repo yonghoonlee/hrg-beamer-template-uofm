@@ -1,0 +1,73 @@
+%------------------------------
+\begin{myslidefragile}{b}{Footnote Commands}
+
+Use\parnote{This is the first one} \lstinline{\parnote} and\parnote{This is the second one} \lstinline{\parnotefull} for\parnotefull{This is the third one that takes up the rest of the line} footnotes\parnotefull{This is the forth one that takes up the rest of the line}\parnote{This is the fifth one}
+
+Use the \lstinline{b} slide option when you have footnotes
+
+\end{myslidefragile}
+
+%------------------------------
+\begin{myslidefragile}{b}{URL Commands}
+
+\lstinline{\urlfull} with an example \urlfull{https://www.engr.colostate.edu/~drherber} and in a footnote\parnote{\urlfull{https://www.engr.colostate.edu/~drherber}}
+
+\lstinline{\urlhttps} with an example \urlhttps{www.engr.colostate.edu/~drherber} and in a footnote\parnotefull{\urlhttps{www.engr.colostate.edu/~drherber}}
+
+
+\lstinline{\urlvideo} with an example \urlvideo{www.youtube.com/watch?v=N17Od3rY0bA} and in a footnote\parnote{\urlvideo{www.youtube.com/watch?v=N17Od3rY0bA}}
+
+\end{myslidefragile}
+
+%------------------------------
+\begin{myslidefragile}{c}{Other Commands}
+
+Use \lstinline{\qedsymbol} for \qedsymbol
+
+Use \lstinline{\myterm} for terms like \myterm{Term} (see next slide and \lstinline{\mytermslides})
+
+Use \lstinline{\myline} for a horizontal dividing line
+
+\myline{0.7\textwidth}
+
+Use \lstinline{\eqrepeat} to repeat the last equation number (good when you want to repeat an equation on the next slide):
+
+\begin{align}
+A & = \eqbox{\frac{\pi r^2}{2}}
+\end{align}
+
+\eqrepeat
+
+\begin{align}
+A & = \eqbox{\frac{\pi r^2}{2}}
+\end{align}
+
+
+\end{myslidefragile}
+
+%------------------------------
+\begin{myslide}{b}{Examples of Terms \myterm{Term Title}}
+
+\myterm{Term Text 1} \lipsum[1][1-2] \myterm{Term Text 2} \lipsum[1][3]\parnote{They work in a footnote \myterm{Term Footnote}}
+
+\begin{theorem}[Great Theorem]
+
+\lipsum[1][3] \myterm{Term Theorem Text}
+
+\end{theorem}
+
+\begin{enumerate}
+\item \myterm{Term List 1}
+\item \myterm{Term List 2}
+\end{enumerate}
+
+\begin{itemize}
+\item
+\begin{myremark}
+\myterm{Term Box}
+\end{myremark}
+\end{itemize}
+
+Doesn't work in equation environments, but you can use inline math such as \myterm{Term $x - \mathcal{L} - \bm{x}$}
+
+\end{myslide}
