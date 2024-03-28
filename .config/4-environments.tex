@@ -46,7 +46,7 @@
 % boxes
 %---------------------------------------------------------
 % define the main box command
-\newcommand{\mybox}[5]{\item[]%
+\newcommand{\mybox}[5]{%
 \tcbsidebyside[bicolor,
 sidebyside adapt=left,
 sidebyside align=center seam,
@@ -91,24 +91,32 @@ grow to left by=0.1\textwidth,
 \def\myboxbeforeskip{\vspace{2.45pt}}
 \def\myboxafterskip{\vspace{2.45pt}}
 
-\NewEnviron{myremark}{\myboxbeforeskip%
+% \newcommand<>{\myboxitem}{\protect\myboxbeforeskip\item<+->[]\expandafter%
+% }
+
+\newcommand{\itembox}{\myboxbeforeskip\item[]%
+}
+
+\NewEnviron{myremark}{%
 \mybox{\myboxword}{Remark}{\faComment}{niceblue}{\BODY}\myboxafterskip}
 
-\NewEnviron{myimportant}{\myboxbeforeskip%
+\NewEnviron{myimportant}{%
 \mybox{\myboxword}{Important}{\faExclamationCircle}{nicegreen}{\BODY}\myboxafterskip}
 
-\NewEnviron{myfuture}{\myboxbeforeskip%
+\NewEnviron{myfuture}{%
 \mybox{\myboxword}{Upcoming}{\faForward}{nicepink}{\BODY}\myboxafterskip}
 
-\NewEnviron{myquestion}{\myboxbeforeskip%
+\NewEnviron{myquestion}{%
 \mybox{\myboxword}{Question}{\faQuestionCircle}{nicered}{\BODY}\myboxafterskip}
 
-\NewEnviron{myoptional}{\myboxbeforeskip%
+\NewEnviron{myoptional}{%
 \mybox{\myboxword}{Optional}{\faComment}{niceblue}{\BODY}\myboxafterskip}
 
-\NewEnviron{myreview}[1]{\myboxbeforeskip%
+\NewEnviron{myreview}[1]{%
 \mybox{\myboxword}{Review}{\faBackward}{nicegray}{\textcolor{nicegray}{[#1]} \BODY}\myboxafterskip}
 
+% \NewEnviron{myreview}[1]{\myboxbeforeskip%
+% \mybox{\myboxword}{Review}{\faBackward}{nicegray}{\textcolor{nicegray}{[#1]} \BODY}\myboxafterskip}
 
 
 \NewEnviron{blockfinaleq}{\bgroup \belowdisplayskip=0pt\belowdisplayshortskip=0pt%
