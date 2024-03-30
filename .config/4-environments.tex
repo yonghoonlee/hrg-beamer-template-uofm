@@ -1,12 +1,15 @@
 %---------------------------------------------------------
 % slide environments
 %---------------------------------------------------------
+\mode<beamer|second|trans|article>{\newcommand\mytrans{\transfade[duration=0.1]}}
+\mode<handout>{\newcommand\mytrans{}}
+
 
 % main myslide
 \newenvironment{myslide}[2]
 {\begin{frame}[#1]%
 \frametitle{{\mytitlemark #2}}%
-\transfade[duration=0.1]
+\mytrans
 }%
 {\parnotes\end{frame}}
 
@@ -14,7 +17,7 @@
 \newenvironment{myslidefragile}[2]
 {\begin{frame}[fragile,environment=myslidefragile,#1]%
 \frametitle{{\mytitlemark {#2}}}%
-\transfade[duration=0.1]
+\mytrans
 }%
 {\parnotes\end{frame}}
 
