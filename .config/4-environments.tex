@@ -84,6 +84,7 @@ grow to left by=0.1\textwidth,
 #2\\\vspace{1.5pt} \scalebox{1.25}{#3}
 \end{minipage}}%
 }{%
+\lstset{basicstyle=\ttfamily\small}%
 #5%
 }%
 }
@@ -118,9 +119,8 @@ grow to left by=0.1\textwidth,
 \NewEnviron{myreview}[1]{%
 \mybox{\myboxword}{Review}{\faBackward}{nicegray}{\textcolor{nicegray}{[#1]} \BODY}\myboxafterskip}
 
-% \NewEnviron{myreview}[1]{\myboxbeforeskip%
-% \mybox{\myboxword}{Review}{\faBackward}{nicegray}{\textcolor{nicegray}{[#1]} \BODY}\myboxafterskip}
-
+\NewEnviron{myhint}{%
+\mybox{\myboxword}{Hint}{\faStar}{nicered}{\BODY}\myboxafterskip}
 
 \NewEnviron{blockfinaleq}{\bgroup \belowdisplayskip=0pt\belowdisplayshortskip=0pt%
 \BODY%

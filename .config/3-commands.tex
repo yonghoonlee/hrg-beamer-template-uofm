@@ -139,11 +139,24 @@ code-for-last-col = \color{textcoloremph},
 }
 \makeatletter
 
+% adds a transparent white rounded rectangle around text
+\newcommand{\myoutline}[2]{%
+\begin{tikzpicture}
+\node [
+fill=white,
+fill opacity=0.9,
+text opacity=1,
+rounded corners=0.05in,
+#2
+] at (0,0) {#1};
+\end{tikzpicture}%
+}%
+
 
 %----------------------------------------------------------------
 % listings
 %----------------------------------------------------------------
-% 
+%
 \lstset{numbers=left,
 numberstyle=\tiny,
 stepnumber=1,
@@ -164,7 +177,7 @@ breaklines=true,
 %----------------------------------------------------------------
 % references
 %----------------------------------------------------------------
-
+% uses shorttitle if available, title otherwise
 \DeclareCiteCommand{\citetitle}
   {\boolfalse{citetracker}%
    \boolfalse{pagetracker}%
@@ -174,6 +187,31 @@ breaklines=true,
      {}%
    \printtext[bibhyperref]{\printfield[citetitle]{labeltitle}}}
   {\multicitedelim}
+  {\usebibmacro{postnote}}
+
+% uses title always
+\DeclareCiteCommand{\citetitlefull}
+  {\boolfalse{citetracker}%
+   \boolfalse{pagetracker}%
+   \usebibmacro{prenote}}
+  {\ifciteindex
+     {\indexfield{indextitle}}
+     {}%
+   \printtext[bibhyperref]{\printfield{title}}}
+  {\multicitedelim}
+  {\usebibmacro{postnote}}
+
+% formatted url from entry
+\DeclareCiteCommand{\citeurl}
+  {\boolfalse{citetracker}%
+   \boolfalse{pagetracker}%
+   \usebibmacro{prenote}}
+  {\ifciteindex
+     {\indexfield{indextitle}}
+     {}%
+      \urlfull{\thefield{url}}%
+  }
+  {}
   {\usebibmacro{postnote}}
 
 % reference slides
@@ -263,6 +301,35 @@ breaklines=true,
 \end{column}
 }
 
+% add the grid to myoverpic
+\NewEnviron{myoverpicgrid}[2]{%
+\setfigurewidth{#1}{#2}%
+\begin{columns}
+\begin{column}{\figurewidth}
+\begin{figbox}
+\centering
+\begin{overpic}[scale=#2,grid]{#1}
+\BODY
+\end{overpic}
+\end{figbox}
+\end{column}
+\end{columns}%
+}
+
+% add the grid to myoverpiccol
+\NewEnviron{myoverpiccolgrid}[2]{%
+\setfigurewidth{#1}{#2}%
+\begin{column}{\figurewidth}
+\begin{figbox}
+\centering
+\begin{overpic}[scale=#2,grid]{#1}
+\BODY
+\end{overpic}
+\end{figbox}
+\end{column}
+}
+
+
 %----------------------------------------------------------------
 % links
 %----------------------------------------------------------------
@@ -274,6 +341,7 @@ breaklines=true,
 
 \newcommand{\myhref}[2]{\textcolor{textcoloremph}{\scalebox{0.9}{\faLink}\,\href{#1}{#2}}}
 
+\newcommand{\myhrefvideo}[2]{\textcolor{textcoloremph}{\scalebox{0.9}{\faVideo}\,\href{#1}{#2}}}
 
 %----------------------------------------------------------------
 % parnotes
