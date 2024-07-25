@@ -1,0 +1,72 @@
+{
+  "folders": [
+    {
+      "name": "slides",
+      "path": "."
+    },
+  ],
+  "settings": {
+    "latex-workshop.latex.jobname": "slides",
+    "editor.wordWrap": "on",
+    "files.exclude": {
+      "*.sublime-workspace": true,
+      "*.sublime-project": true,
+      "*.synctex": true,
+      "*.synctex.gz": true,
+    },
+    "latex-workshop.intellisense.package.enabled": true,
+    "latex-workshop.intellisense.citation.backend": "biblatex",
+    "latex-workshop.view.pdf.viewer": "tab",
+    "latex-workshop.view.pdf.color.dark.backgroundColor": "#272822",
+    "latex-workshop.view.pdf.color.dark.pageBorderColor": "#272822",
+    "latex-workshop.latex.recipe.default": "pdflatex -> biber -> pdflatex*2",
+    "latex-workshop.latex.recipes": [
+      {
+        "name": "pdflatex -> biber -> pdflatex*2",
+        "tools": [
+          "pdflatex",
+          "biber",
+          "pdflatex",
+          "pdflatex"
+        ]
+      },
+      {
+        "name": "pdflatex",
+        "tools": [
+          "pdflatex"
+        ]
+      },
+    ],
+    "latex-workshop.latex.tools": [
+      {
+        "name": "pdflatex",
+        "command": "pdflatex",
+        "args": [
+          "-synctex=1",
+          "--aux-directory=.build",
+          "-interaction=nonstopmode",
+          "-file-line-error",
+          "%DOC%"
+        ],
+        "env": {}
+      },
+      {
+        "name": "biber",
+        "command": "biber",
+        "args": [
+          "--output-directory=.build",
+          "%DOCFILE%"
+        ],
+        "env": {}
+      }
+    ],
+    "cSpell.diagnosticLevel": "Hint",
+    "workbench.colorCustomizations": {
+      // will change the color of three dots to red
+      "editorHint.foreground": "#ff0000",
+      // will underline the entire word with dots in your chosen color
+      "editorHint.border": "#00ff66",
+      "editorHint.foreground": "#f000",
+    },
+  }
+}

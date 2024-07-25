@@ -1,7 +1,7 @@
 %------------------------------
 \begin{myslide}{c}{\lstinline{myfig} Command}
 
-\myfig{../figures/csu.pdf}{0.25}
+\myfig{\mygraphicspath/csu.pdf}{0.25}
 
 \end{myslide}
 
@@ -14,17 +14,17 @@
 \lipsum[66]
 \end{column}
 
-\myfigcol{../figures/csu.pdf}{0.15}
+\myfigcol{\mygraphicspath/csu.pdf}{0.15}
 
 \end{columns}
 
 \begin{columns}[t]
 
-\myfigcol{../figures/csu.pdf}{0.25}
+\myfigcol{\mygraphicspath/csu.pdf}{0.25}
 
-\myfigcol{../figures/csu.pdf}{0.20}
+\myfigcol{\mygraphicspath/csu.pdf}{0.20}
 
-\myfigcol{../figures/csu.pdf}{0.15}
+\myfigcol{\mygraphicspath/csu.pdf}{0.15}
 
 \end{columns}
 
@@ -33,15 +33,15 @@
 %------------------------------
 \begin{myslide}{c}{\lstinline{myoverpic} Environment}
 
-\begin{myoverpic}{../figures/csu.pdf}{0.25}
+\begin{myoverpic}{\mygraphicspath/csu.pdf}{0.25}
 \put (0,0) {\scalebox{0.75}{Text}}%
 \put (50,97) {\makebox[0pt]{\textcolor{nicered}{Centered Text}}}%
 \end{myoverpic}
 
 \myspacelarge
 
-\begin{myoverpic}{../figures/csu.pdf}{0.25}
-\put (0,0) {\includegraphics[scale=0.05]{../figures/csu.pdf}}%
+\begin{myoverpic}{\mygraphicspath/csu.pdf}{0.25}
+\put (0,0) {\includegraphics[scale=0.05]{\mygraphicspath/csu.pdf}}%
 \put (50,115) {\makebox[0pt]{\textcolor{niceblue}{Above Centered Text}}}%
 \end{myoverpic}
 
@@ -52,15 +52,29 @@
 
 \begin{columns}[t]
 
-\begin{myoverpiccol}{../figures/csu.pdf}{0.25}
+\begin{myoverpiccol}{\mygraphicspath/csu.pdf}{0.25}
 \put (0,0) {\scalebox{0.75}{Text}}%
 \put (50,97) {\makebox[0pt]{\textcolor{nicered}{Centered Text}}}%
 \end{myoverpiccol}
 
-\begin{myoverpiccol}{../figures/csu.pdf}{0.25}
-\put (0,0) {\includegraphics[scale=0.05]{../figures/csu.pdf}}%
-\put (50,115) {\makebox[0pt]{\textcolor{niceblue}{Above Centered Text}}}%
+\begin{myoverpiccol}{\mygraphicspath/csu.pdf}{0.5}
+\put (0,0) {\includegraphics[scale=0.05]{\mygraphicspath/csu.pdf}}%
+\put (50,110) {\makebox[0pt]{\textcolor{niceblue}{Above Centered Text}}}%
 \end{myoverpiccol}
+
+\end{columns}
+
+\end{myslide}
+
+%------------------------------
+\begin{myslide}{c}{\lstinline{myoverpiccolgrid} Environment with a Grid}
+
+\begin{columns}[t]
+
+\begin{myoverpiccolgrid}{\mygraphicspath/csu.pdf}{0.5}
+\put (0,0) {\includegraphics[scale=0.05]{\mygraphicspath/csu.pdf}}%
+\put (50,110) {\makebox[0pt]{\textcolor{niceblue}{Above Centered Text}}}%
+\end{myoverpiccolgrid}
 
 \end{columns}
 
@@ -118,9 +132,9 @@ Recommended figure height 1.5 in (below)
 
 \begin{columns}
 
-\myfigcol{../figures/figure_size.pdf}{1}
+\myfigcol{\mygraphicspath/figure_size.pdf}{1}
 
-\myfigcol{../figures/figure_size.pdf}{1}
+\myfigcol{\mygraphicspath/figure_size.pdf}{1}
 
 \end{columns}
 

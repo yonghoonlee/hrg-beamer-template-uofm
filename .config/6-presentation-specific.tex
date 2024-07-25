@@ -1,29 +1,50 @@
-\addbibresource{../references.bib}
+% location of references
+\addbibresource{references.bib}
+
+% location of figures
+\newcommand{\mygraphicspath}{figures}
+
+% copyright info
+\newcommand{\xcopyright}{\textcolor{textcoloremph}{\textcopyright{} \the\year{} Name. All Rights Reserved.}}
 
 % title
-\title{\LARGE{\texorpdfstring{%
-Title
-}{%
-PDF Title
-}}}
+\title{\texorpdfstring{%
+\setbeamercolor{background canvas}{bg=}%
+\begin{textblock*}{\paperwidth}(0pt,0.26\paperheight)\centering%
+\begin{minipage}[c]{0.95\paperwidth}\centering%
+\textcolor{textcolor}{\huge{Title}} \\
+\vspace*{0.25\baselineskip}%
+\textcolor{textcoloremph}{\Large{\textit{Subtitle}}}%
+\end{minipage}%
+\end{textblock*}%
+}{Title: Subtitle}}
 
 % author
-\author{\texorpdfstring{{\scalebox{0.9}{\faUser}}~Name}{PDF Name}}
-
+\author[Name]{\texorpdfstring{%
+\begin{textblock*}{\paperwidth}(0pt,0.65\paperheight)\centering%
+\begin{minipage}[c]{0.95\paperwidth}\centering%
+\textcolor{textcolor}{\scalebox{0.9}{\faUser}~Name}%
+\end{minipage}%
+\end{textblock*}%
+}{Name}}
 
 % institute
-\institute{
-\minibox[c]{\scalebox{0.9}{\faUniversity}~Colorado State University -- Department of Systems Engineering \\%
-\scalebox{0.9}{\faEnvelope}~\href{mailto:daniel.herber@colostate.edu}{daniel.herber@colostate.edu}
-}
-
-\vspace*{\baselineskip}
+\institute{%
+\begin{textblock*}{\paperwidth}(0pt,0.75\paperheight)\centering%
+\begin{minipage}[c]{0.95\paperwidth}\centering%
+\textcolor{textcolor}{\scalebox{0.9}{\faEnvelope}~\href{mailto:email@colostate.edu}{email@colostate.edu}}
+\vspace*{0.25\baselineskip}\\
+\textcolor{textcolor}{\scalebox{0.9}{\faUniversity}~University -- Department}%
+\vspace*{0.25\baselineskip}\\
+\textcolor{textcolor}{Event Information}%
+\end{minipage}%
+\end{textblock*}%
 
 \begin{textblock}{3}(0,11.5)
 \if\darkmode1
-\includegraphics[height=0.6in]{figures/csu-white.pdf}
+\includegraphics[height=0.6in]{{\configpath}figures/csu-white.pdf}
 \else
-\includegraphics[height=0.6in]{figures/csu.pdf}
+\includegraphics[height=0.6in]{{\configpath}figures/csu.pdf}
 \fi
 \end{textblock}
 }

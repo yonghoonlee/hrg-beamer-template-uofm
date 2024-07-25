@@ -13,17 +13,18 @@ else
 
 }
 
-pdflatex -draftmode -interaction=batchmode  -synctex=0 --aux-directory=.build $filename
+pdflatex -draftmode -interaction=batchmode -synctex=0 --aux-directory=.build $filename
 
 biber --output-directory=.build $filename
 
-pdflatex -draftmode -interaction=batchmode  -synctex=0 --aux-directory=.build $filename
-pdflatex -draftmode -interaction=batchmode  -synctex=0 --aux-directory=.build $filename
-pdflatex -interaction=batchmode  -synctex=0 --aux-directory=.build $filename
+pdflatex -draftmode -interaction=batchmode -synctex=0 --aux-directory=.build $filename
+pdflatex -draftmode -interaction=batchmode -synctex=0 --aux-directory=.build $filename
+pdflatex -interaction=batchmode -synctex=0 --aux-directory=.build $filename
 pdflatex -interaction=batchmode -synctex=0 --aux-directory=.build $filename
 
 $filenamepdf = $filename+".pdf"
 
+# requires pdfsizeopt (https://github.com/pts/pdfsizeopt)
 ./../../../.config-specific/pdfsizeopt/pdfsizeopt --do-optimize-images=no $filenamepdf $filenamepdf
 
 Write-Host $(" ")
@@ -54,6 +55,7 @@ pdflatex -interaction=batchmode -synctex=0 --aux-directory=.build $darkfilename
 
 $darkfilenamepdf = $darkfilename+".pdf"
 
+# requires pdfsizeopt (https://github.com/pts/pdfsizeopt)
 ./../../../.config-specific/pdfsizeopt/pdfsizeopt --do-optimize-images=no $darkfilenamepdf $darkfilenamepdf
 
 Write-Host $(" ")
@@ -84,6 +86,7 @@ pdflatex -interaction=batchmode -synctex=0 --aux-directory=.build $animatedfilen
 
 $animatedfilenamepdf = $animatedfilename+".pdf"
 
+# requires pdfsizeopt (https://github.com/pts/pdfsizeopt)
 ./../../../.config-specific/pdfsizeopt/pdfsizeopt --do-optimize-images=no $animatedfilenamepdf $animatedfilenamepdf
 
 Write-Host $(" ")
