@@ -483,3 +483,13 @@
 \end{align}
 }}}%
 }
+
+\NewEnviron{extraleftalignat}[2]{%
+\newline\vspace*{-1pt}%
+\setlength{\belowdisplayskip}{5pt}%
+\addtocounter{beamerpauses}{-1}\uncover<+->{\makebox[\linewidth]{\hspace{#1}\parbox{\dimexpr\linewidth-#1}{%
+\begin{alignat}{4}%
+\BODY
+\end{alignat}
+}}}%
+}
