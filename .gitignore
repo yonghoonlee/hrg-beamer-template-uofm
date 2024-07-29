@@ -1,14 +1,16 @@
 !.gitignore
 
 # ignore certain file extensions
-*.ini
-*.asv
 *.synctex.gz
 *.synctex.gz.sum.synctex
 *.synctex(busy)
 *.sublime-workspace
+*.asv
 *.aux
+*.bbl
 *.bcf
+*.blg
+*.ini
 *.log
 *.nav
 *.xml
@@ -20,3 +22,4 @@
 **/.build/
 
 # ignore specific files
+.DS_Store
