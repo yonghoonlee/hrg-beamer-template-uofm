@@ -7,6 +7,14 @@
 *.synctex.gz.sum.synctex
 *.synctex(busy)
 *.sublime-workspace
+*.aux
+*.bcf
+*.log
+*.nav
+*.xml
+*.snm
+*.toc
+*.vrb
 
 # ignore certain folders
 **/.build/
